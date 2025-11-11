@@ -1,0 +1,266 @@
+
+@import "tailwindcss";
+* {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Ubuntu, Cantarell, "Fira Sans", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  /* overflow:hidden; */
+}
+html {
+  overflow: hidden;
+}
+
+
+@theme {
+  --color-white: #ffffff;
+  --color-white-24: #ffffff24;
+  --color-white-e6: #ffffffe6;
+
+  --color-black: #000000;
+  --color-black-13: #0000000d;
+  --color-black-99: #00000099;
+  --color-black-1a: #0000001a;
+
+  --color-neutral-light1: #f7f5f3;
+  --color-neutral-light2: #f5f1eb;
+  --color-neutral-light3: #f1eeeb;
+  --color-neutral-light4: #dbd8d4;
+  --color-neutral-light5: #c2bdb826;
+
+  --color-green-light: #d9fdd3;
+  --color-green-main: #1daa61;
+  --color-green-alt: #06cf9c;
+  --color-green-dark: #1b8755;
+
+  --color-blue-light: #53bdeb;
+  --color-blue-alt: #4fc3f7;
+  --color-blue-main: #007bfc;
+
+  --color-gray: #808080;
+
+  /* ✅ font sizes fixed */
+  --text-12: 12px;
+  --text-12--line-height: normal;
+  --text-12--font-weight: 500;
+
+    --text-11: 11px;
+  --text-11--line-height: normal;
+  --text-11--font-weight: 400;
+
+  --text-13: 13px;
+  --text-13--line-height: 14px;
+  --text-13--font-weight: 600;
+
+  --text-13-3333: 13.3333px;
+  --text-13-3333--line-height: 19.995px;
+  --text-13-3333--font-weight: 400;
+
+  --text-14: 14px;
+  --text-14--line-height: 20px;
+  --text-14--font-weight: 445;
+
+  --text-15: 15px;
+  --text-15--line-height: 24px;
+  --text-15--font-weight: 300;
+
+  --text-16: 16px;
+  --text-16--line-height: 16px;
+  --text-16--font-weight: 400;  
+  
+  --text-18: 18px;
+  --text-18--line-height: 18px;
+  --text-18--font-weight: 400;
+
+  --text-20: 20px;
+  --text-20--line-height: 22.05px;
+  --text-20--font-weight: 400;
+
+  --text-24: 24px;
+  --text-24--line-height: 22.05px;
+  --text-24--font-weight: 400;
+
+  
+
+  --text-32: 32px;
+  --text-32--line-height: 37.5px;
+  --text-32--font-weight: 400;
+}
+.otp-container{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+  }
+  
+  /* style similar to your screenshot: rounded boxes with border and subtle shadow */
+  .otp-input{
+    width:48px;         /* adjust to desired size */
+    height:48px;
+    border-radius:8px;
+    border:1px solid #cdd6db; /* light border */
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    text-align:center;
+    font-size:18px;
+    outline:none;
+    transition:all .12s ease;
+    background:white;
+    caret-color:transparent; /* hide caret if you want */
+  }
+  
+  .otp-input:focus{
+    border-color:#357f69;
+    box-shadow: 0 0 0 3px rgba(107,140,255,0.12);
+    transform: translateY(-1px);
+  }
+
+  
+@utility chatBackgroundImage {
+  position: absolute;
+  background-image: url('/images/MHVytaGe3gh.png');
+  top:0;
+  background-color:#d0c7bb;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c1beb8;
+  padding: 10px;
+  background-clip: content-box;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #827676;
+}
+
+/* Loading animation */
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
